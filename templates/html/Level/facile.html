@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" type="text/css" href="/templates/css/level/facile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jeu du pendu</title>
+</head>
+<body>
+<div class="container">
+    <h1>Jeu du pendu</h1>
+    <p>Bienvenue {{.Username }}</p>
+    <form method="post" action="/hangman" id="hangman-form">
+        <label for="letter" class="letter"></label>
+        <input id="formSuggest" type="text" name="letter" autocomplete ="off"  required placeholder="Entrez une lettre" maxlength="1" autofocus>
+        <input type="submit" value="Envoyer" class="btn">
+    </form>
+    <div id="letter" class="alphabet">
+        {{ range $i, $lettre := .Alphabet }}
+        <a id="letterButton" href="/hangman?letter={{ $lettre }}">{{ $lettre }}</a>
+        {{ end }}
+    </div>
+    {{ if .Message }} <h3>{{ .Message }}</h3> {{ end }}
+    <h3>Score : {{ .Score }}</h3>
+    <h3>Essais restants : {{ .RemainingAtt }}</h3>
+    {{ if .GameWon }}
+    <form action="/replay?level={{ .Level }}" method="post">
+        <input type="submit" value="Rejouer" class="btn">
+    </form>
+    {{ end }}
+    {{ if .GameLost }}
+    <h3>Le mot à trouver était : {{ .Word }}</h3>
+    {{ else }}
+    <h3>Mot à trouver : {{ .Word }}</h3>
+    {{ end }}
+    <div class="hangman-image">
+        {{ if eq .RemainingAtt 9 }}
+        <img src="/templates/img/hang1.png" alt="Hangman with 9 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 8 }}
+        <img src="/templates/img/hang2.png" alt="Hangman with 8 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 7 }}
+        <img src="/templates/img/hang3.png" alt="Hangman with 7 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 6 }}
+        <img src="/templates/img/hang4.png" alt="Hangman with 6 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 5 }}
+        <img src="/templates/img/hang5.png" alt="Hangman with 5 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 4 }}
+        <img src="/templates/img/hang6.png" alt="Hangman with 4 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 3 }}
+        <img src="/templates/img/hang7.png" alt="Hangman with 3 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 2 }}
+        <img src="/templates/img/hang8.png" alt="Hangman with 2 attempts remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 1 }}
+        <img src="/templates/img/hang9.png" alt="Hangman with 1 attempt remaining">
+        {{ end }}
+        {{ if eq .RemainingAtt 0 }}
+        <img src="/templates/img/hang10.png" alt="Hangman with 0 attempts remaining">
+        {{ end }}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    bottom: 25%;
+    font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+}
+
+body {
+    background: #ffffff;
+}
+
+h1{
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+form {
+    width: 280px;
+}
+
+.btn {
+    margin: 20px;
+    display: block;
+    width: 96%;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgba(35,178,164,1) 0%, rgba(35,178,164,1) 42%, rgba(0,212,255,1) 100%);
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #1d1d1e;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.placeholder {
+    outline: none;
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #797979;
+    margin-left: 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+input {
+    outline: none;
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #797979;
+    margin-left: 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-position: right;
+}
+.hangman-image img {
+    width: 100%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid #1d1d1e 1px;
+}
+#letterButton{
+    text-decoration: none;
+    color: #1d1d1e;
+    border: 3px solid #1d1d1e;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#letter{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

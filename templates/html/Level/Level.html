@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/templates/css/level/level.css">
+    <title>Home</title>
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Bienvenue {{ .Username }}!</h1>
+            <form action="/facile" class="sign-in-form" method="post">
+                <button class="btn facile" type="submit">Facile</button>
+            </form>
+            <form action="/normal" class="sign-in-form" method="post">
+                <button class="btn normal" type="submit">Normal</button>
+            </form>
+            <form action="/difficile" class="sign-in-form" method="post">
+                <button class="btn difficile" type="submit">Difficile</button>
+            </form>
+        </div>
+    </div>
+</header>
+</body>
+</html>
