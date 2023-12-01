@@ -1,4 +1,10 @@
-Hangman-Web
+# Hangman-Web
+
+Vous devez installer SQLITE avant de l'éxecuter sinon ça marchera pas 
+
+##  Cliquer [ICI](https://nodejs.org/en/download) pour installer SQLITE
+
+Une fois que c'est fait, vous pouvez passer à la suite.
 
 Hangman-Web est un jeu classique, mais ses composantes sont en HTML, CSS et en Go.
 
