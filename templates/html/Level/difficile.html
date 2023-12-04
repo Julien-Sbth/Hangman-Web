@@ -16,15 +16,11 @@
         <input id="formSuggest" type="text" name="letter" autocomplete ="off"  required placeholder="Entrez une lettre" maxlength="1" autofocus>
         <input type="submit" value="Envoyer" class="btn">
     </form>
-
     <div id="letter" class="alphabet">
         {{ range $i, $lettre := .Alphabet }}
         <a id="letterButton" href="/hangman?letter={{ $lettre }}">{{ $lettre }}</a>
         {{ end }}
     </div>
-    <form method="post" action="/level" id="reset-form">
-        <input type="submit" value="Réinitialiser le niveau" class="btn-reset">
-    </form>
     {{ if .Message }} <h3>{{ .Message }}</h3> {{ end }}
     <h3>Score : {{ .Score }}</h3>
     <h3>Essais restants : {{ .RemainingAtt }}</h3>
