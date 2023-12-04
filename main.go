@@ -20,6 +20,7 @@ func main() {
 	http.HandleFunc("/normal", Hangman.HandleNormale)
 	http.HandleFunc("/difficile", Hangman.HandleDifficile)
 	http.HandleFunc("/level", Fonctions.HandleLevel)
+	http.HandleFunc("/token", Fonctions.HandleProfile)
 	http.HandleFunc("/replay", Hangman.HandleReplay)
 	http.HandleFunc("/hangman", Hangman.HandleHangman)
 	http.HandleFunc("/connexion", Connexion.HandleConnexion)
