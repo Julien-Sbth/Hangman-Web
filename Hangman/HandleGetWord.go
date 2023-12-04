@@ -43,5 +43,4 @@ func HandleGetWord(w http.ResponseWriter, r *http.Request, difficulty string) {
 	RevealedWord = strings.Repeat("*", len(WordToFind))
 	RemainingAttempts = 6
 
-	// Utiliser wordToFind et revealedWord comme nécessaire...
 }

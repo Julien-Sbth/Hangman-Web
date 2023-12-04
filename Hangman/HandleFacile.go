@@ -58,11 +58,10 @@ func HandleFacile(w http.ResponseWriter, r *http.Request) {
 
 	CurrentLevel = "facile"
 
-	// Lorsque vous changez de niveau, réinitialisez le jeu spécifique à ce niveau
 	if CurrentLevelData != &FacileData {
-		FacileData = LevelData{} // Réinitialisation des données du niveau facile
+		FacileData = LevelData{}
 	}
-	CurrentLevelData = &FacileData // Mettez à jour les données du niveau actuel
+	CurrentLevelData = &FacileData
 
 	session, err := Connexion.Store.Get(r, Connexion.SessionName)
 	if err != nil {
@@ -104,13 +103,10 @@ func HandleFacile(w http.ResponseWriter, r *http.Request) {
 		r.ParseForm()
 		level := r.Form.Get("level")
 
-		// Réinitialiser les données lorsque l'utilisateur change de niveau
 		if level != CurrentLevel {
-			// Réinitialiser les données spécifiques au niveau sélectionné
 			Fonctions.ResetGameData(level)
 			CurrentLevel = level
 
-			// Réinitialiser le jeu spécifique au niveau actuel
 			switch level {
 			case "facile":
 				CurrentLevelData = &FacileData
@@ -120,13 +116,12 @@ func HandleFacile(w http.ResponseWriter, r *http.Request) {
 				CurrentLevelData = &DifficileData
 			}
 
-			ResetAllGameData() // Effacer toutes les données spécifiques à tous les niveaux
+			ResetAllGameData()
 		}
 		r.ParseForm()
 
-		// Réinitialisez les données lorsque l'utilisateur change de niveau
 		if level != CurrentLevel {
-			Fonctions.ResetGameData(level) // Appel à la fonction pour réinitialiser les données
+			Fonctions.ResetGameData(level)
 			CurrentLevel = level
 		}
 		if r.URL.Path == "/facile" {
@@ -177,7 +172,6 @@ func HandleFacile(w http.ResponseWriter, r *http.Request) {
 }
 
 func ResetAllGameData() {
-	// Effacer complètement toutes les données spécifiques à tous les niveaux
 	LevelDataMap = make(map[string]LevelData)
 	FacileData = LevelData{}
 	NormalData = LevelData{}
