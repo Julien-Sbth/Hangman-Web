@@ -21,7 +21,6 @@ func HandleGuessedLetter(letter string) {
 
 		RevealedWord = updatedRevealedWord
 
-		// Vérifie si le mot a été trouvé après chaque tentative de deviner une lettre
 		if RevealedWord == WordToFind {
 			Score++
 		}
